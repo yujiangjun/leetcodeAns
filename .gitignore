@@ -40,3 +40,6 @@ replay_pid*
 /out/production/leetcodeAns/.idea/uiDesigner.xml
 /.idea/vcs.xml
 /out/production/leetcodeAns/.idea/vcs.xml
+/.idea/
+/out/
+/leetcodeAns.iml
