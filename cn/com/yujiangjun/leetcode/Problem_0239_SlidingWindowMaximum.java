@@ -1,9 +1,6 @@
 package cn.com.yujiangjun.leetcode;
 
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Problem_0239_SlidingWindowMaximum {
     public static int[] maxSlidingWindow(int[] nums, int k) {
@@ -25,26 +22,23 @@ public class Problem_0239_SlidingWindowMaximum {
     }
 
     public static int[] maxSlidingWindow2(int[] nums, int k) {
-        int n = nums.length;
-        int[] ans = new int[n - k + 1];
-        Deque<Integer> deque = new LinkedList<>();
-        for (int i = 0; i < k; i++) {
-            while (!deque.isEmpty()&&nums[i]>=nums[deque.peekLast()]){
-                deque.pollLast();
-            }
-            deque.addLast(i);
+        if (nums == null || nums.length < k) {
+            return new int[]{};
         }
-        ans[0]=nums[deque.peekFirst()];
-
-        for (int i = k; i < n; i++) {
-            while (!deque.isEmpty()&&nums[i]>=nums[deque.peekLast()]){
-                deque.pollLast();
+        int[] ans = new int[nums.length - k + 1];
+        LinkedList<Integer> queue = new LinkedList<>();
+        int index = 0;
+        for (int r = 0; r < nums.length; r++) {
+            if (!queue.isEmpty() && nums[queue.peekLast()] <= nums[r]) {
+                queue.pollLast();
             }
-            deque.addLast(i);
-            while (!deque.isEmpty()&&deque.peekFirst()<=i-k){
-                deque.pollFirst();
+            queue.addLast(r);
+            if (queue.peek() == r - k) {
+                queue.pollFirst();
             }
-            ans[i-k+1]=nums[deque.peekFirst()];
+            if (r >= k - 1) {
+                ans[index++] = nums[queue.peekFirst()];
+            }
         }
         return ans;
     }
