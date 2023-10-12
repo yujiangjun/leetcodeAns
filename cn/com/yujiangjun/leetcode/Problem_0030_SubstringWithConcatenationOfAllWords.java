@@ -1,8 +1,6 @@
 package cn.com.yujiangjun.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Problem_0030_SubstringWithConcatenationOfAllWords {
 
@@ -11,45 +9,38 @@ public class Problem_0030_SubstringWithConcatenationOfAllWords {
         int wordLen = words[0].length();
         int n = words.length;
         int width = n * wordLen;
-        int[] counter = new int[26];
-        int[] sc = new int[26];
-        for (String word : words) {
-            for (char c : word.toCharArray()) {
-                counter[c - 'a']++;
-            }
-        }
         List<Integer> ans = new ArrayList<>();
-        char[] str = s.toCharArray();
-        int l = 0;
-        int r = 0;
-        for (; r < str.length; r++) {
-            sc[str[r] - 'a']++;
-            while (r - l + 1 >= width && isCover(counter, sc)) {
-                ans.add(l);
-                for (int i = 0; i < wordLen; i++) {
-                    sc[str[l+i] - 'a']--;
-                    l++;
-                }
-            }
+        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map2 = new HashMap<>();
+
+        for (String word : words) {
+            map.put(word, map.getOrDefault(word, 0) + 1);
         }
-        if (r - l + 1 >= width && isCover(counter, sc)) {
-            ans.add(l);
+        char[] str = s.toCharArray();
+        int l=0;
+        for (int r = 0; r < str.length; r++) {
+
         }
         return ans;
-    }
-
-    public static boolean isCover(int[] counter, int[] sc) {
-        for (int i = 0; i < counter.length; i++) {
-            if (sc[i] < counter[i]) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public static void main(String[] args) {
         String s = "barfoothefoobarman";
         String[] words = {"foo", "bar"};
         System.out.println(Arrays.toString(findSubstring(s, words).toArray()));
+        System.out.println("===================");
+        String s2 = "wordgoodgoodgoodbestword";
+        String[] words2 = {"word", "good", "best", "word"};
+        System.out.println(Arrays.toString(findSubstring(s2, words2).toArray()));
+        System.out.println("===================");
+        String s3 = "barfoofoobarthefoobarman";
+        String[] words3 = {"bar", "foo", "the"};
+        System.out.println(Arrays.toString(findSubstring(s3, words3).toArray()));
+        System.out.println("===================");
+        String s4 = "lingmindraboofooowingdingbarrwingmonkeypoundcake";
+        String[] words4 = {"fooo", "barr", "wing", "ding", "wing"};
+        System.out.println(Arrays.toString(findSubstring(s4, words4).toArray()));
+        System.out.println("===================");
+
     }
 }
