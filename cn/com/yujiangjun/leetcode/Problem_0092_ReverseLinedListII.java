@@ -1,7 +1,7 @@
 package cn.com.yujiangjun.leetcode;
 
-import cn.com.yujiangjun.leetcode.util.LinkedUtil;
-import cn.com.yujiangjun.leetcode.util.ListNode;
+import cn.com.yujiangjun.util.LinkedUtil;
+import cn.com.yujiangjun.util.ListNode;
 
 public class Problem_0092_ReverseLinedListII {
 

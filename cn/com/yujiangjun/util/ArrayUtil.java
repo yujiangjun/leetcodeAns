@@ -1,4 +1,4 @@
-package cn.com.yujiangjun.leetcode.util;
+package cn.com.yujiangjun.util;
 
 import java.util.Random;
 

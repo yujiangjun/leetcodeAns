@@ -1,4 +1,4 @@
-package cn.com.yujiangjun.leetcode.util;
+package cn.com.yujiangjun.util;
 
 public class ListNode {
 

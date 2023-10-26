@@ -1,6 +1,6 @@
 package cn.com.yujiangjun.leetcode;
 
-import cn.com.yujiangjun.leetcode.util.TreeNode;
+import cn.com.yujiangjun.util.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

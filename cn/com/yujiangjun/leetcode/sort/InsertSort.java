@@ -1,6 +1,6 @@
 package cn.com.yujiangjun.leetcode.sort;
 
-import cn.com.yujiangjun.leetcode.util.ArrayUtil;
+import cn.com.yujiangjun.util.ArrayUtil;
 
 import java.util.Arrays;
 /**

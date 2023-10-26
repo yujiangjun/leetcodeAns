@@ -1,7 +1,7 @@
 package cn.com.yujiangjun.leetcode;
 
-import cn.com.yujiangjun.leetcode.util.LinkedUtil;
-import cn.com.yujiangjun.leetcode.util.ListNode;
+import cn.com.yujiangjun.util.LinkedUtil;
+import cn.com.yujiangjun.util.ListNode;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
